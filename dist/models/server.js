@@ -8,13 +8,14 @@ const users_routes_1 = __importDefault(require("../routes/users.routes"));
 const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_2 = __importDefault(require("../utils/cors"));
+const config_1 = __importDefault(require("../config"));
 class Server {
     constructor() {
         this.apiPaths = {
             users: '/api/users'
         };
         this.app = (0, express_1.default)();
-        this.port = process.env.PORT || '8001';
+        this.port = config_1.default.port;
         //Define my middlewares
         this.middlewares();
         //Define my routes

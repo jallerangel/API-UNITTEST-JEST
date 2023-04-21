@@ -1,9 +1,9 @@
-import dotenv from 'dotenv'
 import Server from './models/server'
 import usersRouter from './routes/users.routes'
+import validatorEnv from './utils/validatorEnv'
+import config from './config'
 
-//Config dotenv
-dotenv.config()
+validatorEnv(config)
 
 const server = new Server()
 

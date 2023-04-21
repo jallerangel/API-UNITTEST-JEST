@@ -3,6 +3,7 @@ import userRouter from '../routes/users.routes'
 import cors from 'cors'
 import morgan from 'morgan'
 import options from '../utils/cors'
+import config from '../config'
 class Server {
 
   private app: Application
@@ -12,9 +13,11 @@ class Server {
   }
   constructor() {
     this.app = express()
-    this.port = process.env.PORT || '8001'
+    this.port = config.port
+
     //Define my middlewares
     this.middlewares()
+
     //Define my routes
     this.routes()
   }
