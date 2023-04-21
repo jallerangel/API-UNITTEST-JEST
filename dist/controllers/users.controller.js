@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUser = exports.updateUser = exports.creatUser = exports.getUser = exports.getUsers = void 0;
+exports.deleteUser = exports.updateUser = exports.createUser = exports.getUser = exports.getUsers = void 0;
 const getUsers = (req, res) => {
     res.json({
         msg: 'Get Users'
@@ -15,13 +15,13 @@ const getUser = (req, res) => {
     });
 };
 exports.getUser = getUser;
-const creatUser = (req, res) => {
+const createUser = (req, res) => {
     const { body } = req;
     res.json({
         msg: 'createUser'
     });
 };
-exports.creatUser = creatUser;
+exports.createUser = createUser;
 const updateUser = (req, res) => {
     const { id } = req.params;
     const { body } = req;

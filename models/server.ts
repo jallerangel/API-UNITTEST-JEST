@@ -1,5 +1,8 @@
 import express, { Application } from 'express'
 import userRouter from '../routes/users.routes'
+import cors from 'cors'
+import morgan from 'morgan'
+import options from '../utils/cors'
 class Server {
 
   private app: Application
@@ -7,17 +10,34 @@ class Server {
   private apiPaths = {
     users: '/api/users'
   }
-
   constructor() {
     this.app = express()
     this.port = process.env.PORT || '8001'
-
+    //Define my middlewares
+    this.middlewares()
     //Define my routes
     this.routes()
   }
 
   routes() {
     this.app.use(this.apiPaths.users, userRouter)
+  }
+
+  // ToDO: Connect to DataBase
+
+  middlewares() {
+
+    // LOGGER
+    this.app.use(morgan('dev'))
+
+    // CORS
+    this.app.use(cors(options))
+
+    // BODYPARSER
+    this.app.use(express.json())
+
+    // PUBLIC DIR
+    this.app.use(express.static('public'))
   }
 
   listen() {

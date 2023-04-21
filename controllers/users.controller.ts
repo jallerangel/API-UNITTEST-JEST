@@ -13,7 +13,7 @@ export const getUser = (req: Request, res: Response) => {
     id
   })
 }
-export const creatUser = (req: Request, res: Response) => {
+export const createUser = (req: Request, res: Response) => {
   const { body } = req
   res.json({
     msg: 'createUser'
@@ -27,7 +27,6 @@ export const updateUser = (req: Request, res: Response) => {
     id,
     body
   })
-
 }
 export const deleteUser = (req: Request, res: Response) => {
   const { id } = req.params
