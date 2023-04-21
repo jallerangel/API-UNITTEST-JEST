@@ -11,4 +11,5 @@ const db = new sequelize_1.Sequelize(dbName, dbUser, dbPassword, {
     dialect: 'mysql',
     // logging: false 
 });
+exports.default = db;
 //# sourceMappingURL=connection.js.map

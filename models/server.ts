@@ -4,6 +4,7 @@ import cors from 'cors'
 import morgan from 'morgan'
 import options from '../utils/cors'
 import config from '../config'
+import db from '../db/connection'
 class Server {
 
   private app: Application
@@ -14,6 +15,8 @@ class Server {
   constructor() {
     this.app = express()
     this.port = config.port
+
+    this.dbConnection()
 
     //Define my middlewares
     this.middlewares()
@@ -27,6 +30,14 @@ class Server {
   }
 
   // ToDO: Connect to DataBase
+  async dbConnection() {
+    try {
+      await db.authenticate()
+      console.log('Connection to database has been succesfully')
+    } catch (error) {
+      throw new Error('Connection to database failed')
+    }
+  }
 
   middlewares() {
 

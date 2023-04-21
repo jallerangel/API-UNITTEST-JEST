@@ -8,3 +8,4 @@ const db = new Sequelize(dbName, dbUser, dbPassword, {
   // logging: false 
 })
 
+export default db
