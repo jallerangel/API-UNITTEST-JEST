@@ -1,3 +1,2 @@
-export const nombre = 'Luis'
-
-console.log(nombre)
+import dotenv from 'dotenv'
+dotenv.config()
