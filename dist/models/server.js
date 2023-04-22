@@ -35,7 +35,6 @@ class Server {
     routes() {
         this.app.use(this.apiPaths.users, users_routes_1.default);
     }
-    // ToDO: Connect to DataBase
     dbConnection() {
         return __awaiter(this, void 0, void 0, function* () {
             try {

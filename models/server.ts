@@ -29,7 +29,6 @@ class Server {
     this.app.use(this.apiPaths.users, userRouter)
   }
 
-  // ToDO: Connect to DataBase
   async dbConnection() {
     try {
       await db.authenticate()
